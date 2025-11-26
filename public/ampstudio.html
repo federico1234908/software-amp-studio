@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SoundWave AmpStudio - Professional Guitar Amp Simulator</title>
+    <link rel="stylesheet" href="ampstudio-styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="logo-section">
+            <h1>🎸 SoundWave <span>AmpStudio</span></h1>
+        </div>
+        <div class="status-section">
+            <span id="latencyDisplay" class="status-item">Latency: --ms</span>
+            <span id="audioStatus" class="status-item status-disconnected">Audio: Disconnected</span>
+            <button id="settingsBtn" class="icon-btn" title="Settings">⚙️</button>
+            <a href="software.html" class="icon-btn" title="Back to Software Page">🏠</a>
+        </div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="main-container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-section">
+                <h3>Input</h3>
+                <button id="startAudioBtn" class="primary-btn full-width">▶️ Start Audio</button>
+                <button id="stopAudioBtn" class="secondary-btn full-width" disabled>⏹️ Stop Audio</button>
+            </div>
+
+            <div class="sidebar-section">
+                <h3>Tools</h3>
+                <button class="tool-btn" data-tool="tuner">🎯 Tuner</button>
+                <button class="tool-btn" data-tool="metronome">⏱️ Metronome</button>
+                <button class="tool-btn" data-tool="looper">🔁 Looper</button>
+                <button class="tool-btn" data-tool="recorder">🎙️ Recorder</button>
+            </div>
+
+            <div class="sidebar-section">
+                <h3>Presets</h3>
+                <select id="presetSelect" class="preset-select">
+                    <option value="">-- Select Preset --</option>
+                    <option value="clean">Clean Jazz</option>
+                    <option value="crunch">Classic Crunch</option>
+                    <option value="lead">Lead Solo</option>
+                    <option value="metal">Heavy Metal</option>
+                    <option value="blues">Blues Drive</option>
+                </select>
+                <button id="savePresetBtn" class="secondary-btn full-width">💾 Save</button>
+                <button id="sharePresetBtn" class="secondary-btn full-width">📤 Share</button>
+            </div>
+
+            <div class="sidebar-section">
+                <h3>Master</h3>
+                <label>Master Volume</label>
+                <input type="range" id="masterVolume" min="0" max="100" value="70" class="slider">
+                <span id="masterVolumeValue" class="value-display">70%</span>
+
+                <label>Output Gain</label>
+                <input type="range" id="outputGain" min="-20" max="20" value="0" class="slider">
+                <span id="outputGainValue" class="value-display">0 dB</span>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Amp Section -->
+            <div class="amp-section">
+                <div class="section-header">
+                    <h2>Amplifier</h2>
+                    <button class="toggle-btn" id="ampBypass">Bypass</button>
+                </div>
+                <div class="amp-controls">
+                    <div class="amp-selector">
+                        <label>Model</label>
+                        <select id="ampModel" class="amp-select">
+                            <option value="clean">SoundWave Clean</option>
+                            <option value="gt50">GT-50 Vintage</option>
+                            <option value="gt100">GT-100 Rock</option>
+                            <option value="bs500">BS-500 Bass</option>
+                            <option value="metal">Metal Monster</option>
+                        </select>
+                    </div>
+                    <div class="knob-group">
+                        <div class="knob-control">
+                            <div class="knob" data-param="gain">
+                                <div class="knob-indicator"></div>
+                            </div>
+                            <label>Gain</label>
+                            <span class="knob-value" id="gainValue">50</span>
+                        </div>
+                        <div class="knob-control">
+                            <div class="knob" data-param="bass">
+                                <div class="knob-indicator"></div>
+                            </div>
+                            <label>Bass</label>
+                            <span class="knob-value" id="bassValue">50</span>
+                        </div>
+                        <div class="knob-control">
+                            <div class="knob" data-param="mid">
+                                <div class="knob-indicator"></div>
+                            </div>
+                            <label>Mid</label>
+                            <span class="knob-value" id="midValue">50</span>
+                        </div>
+                        <div class="knob-control">
+                            <div class="knob" data-param="treble">
+                                <div class="knob-indicator"></div>
+                            </div>
+                            <label>Treble</label>
+                            <span class="knob-value" id="trebleValue">50</span>
+                        </div>
+                        <div class="knob-control">
+                            <div class="knob" data-param="presence">
+                                <div class="knob-indicator"></div>
+                            </div>
+                            <label>Presence</label>
+                            <span class="knob-value" id="presenceValue">50</span>
+                        </div>
+                        <div class="knob-control">
+                            <div class="knob" data-param="volume">
+                                <div class="knob-indicator"></div>
+                            </div>
+                            <label>Volume</label>
+                            <span class="knob-value" id="volumeValue">70</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Effects Chain -->
+            <div class="effects-section">
+                <div class="section-header">
+                    <h2>Effects Chain</h2>
+                    <button class="secondary-btn" id="addEffectBtn">+ Add Effect</button>
+                </div>
+                <div class="effects-chain" id="effectsChain">
+                    <!-- Effects will be added here dynamically -->
+                    <div class="effect-slot empty" data-slot="0">
+                        <span>+ Add Effect</span>
+                    </div>
+                    <div class="effect-slot empty" data-slot="1">
+                        <span>+ Add Effect</span>
+                    </div>
+                    <div class="effect-slot empty" data-slot="2">
+                        <span>+ Add Effect</span>
+                    </div>
+                    <div class="effect-slot empty" data-slot="3">
+                        <span>+ Add Effect</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cabinet Section -->
+            <div class="cabinet-section">
+                <div class="section-header">
+                    <h2>Cabinet & Mic</h2>
+                    <button class="toggle-btn" id="cabinetBypass">Bypass</button>
+                </div>
+                <div class="cabinet-controls">
+                    <div class="cabinet-selector">
+                        <label>Cabinet Model</label>
+                        <select id="cabinetModel" class="select">
+                            <option value="4x12">4x12 Vintage</option>
+                            <option value="2x12">2x12 Modern</option>
+                            <option value="1x12">1x12 Combo</option>
+                            <option value="bass">Bass 4x10</option>
+                        </select>
+                    </div>
+                    <div class="mic-selector">
+                        <label>Microphone</label>
+                        <select id="micModel" class="select">
+                            <option value="sm57">Shure SM57</option>
+                            <option value="421">Sennheiser MD421</option>
+                            <option value="ribbon">Royer R-121</option>
+                            <option value="condenser">AKG C414</option>
+                        </select>
+                    </div>
+                    <div class="mic-position">
+                        <label>Mic Position</label>
+                        <input type="range" id="micPosition" min="0" max="100" value="50" class="slider">
+                        <span id="micPositionValue">Center</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Visualizer -->
+            <div class="visualizer-section">
+                <div class="section-header">
+                    <h2>Signal Monitor</h2>
+                    <div class="visualizer-controls">
+                        <button class="visualizer-mode-btn active" data-mode="waveform">Waveform</button>
+                        <button class="visualizer-mode-btn" data-mode="spectrum">Spectrum</button>
+                        <button class="visualizer-mode-btn" data-mode="meter">Meter</button>
+                    </div>
+                </div>
+                <canvas id="visualizer" width="800" height="150"></canvas>
+                <div class="level-meters">
+                    <div class="meter">
+                        <label>Input</label>
+                        <div class="meter-bar">
+                            <div class="meter-fill input-meter" id="inputMeter"></div>
+                        </div>
+                    </div>
+                    <div class="meter">
+                        <label>Output</label>
+                        <div class="meter-bar">
+                            <div class="meter-fill output-meter" id="outputMeter"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tool Panels (Hidden by default) -->
+    <div id="tunerPanel" class="tool-panel hidden">
+        <div class="tool-panel-header">
+            <h3>🎯 Chromatic Tuner</h3>
+            <button class="close-btn">×</button>
+        </div>
+        <div class="tuner-display">
+            <div class="note-display">--</div>
+            <div class="cents-display">0</div>
+            <div class="tuner-meter">
+                <div class="tuner-needle"></div>
+            </div>
+            <div class="frequency-display">440 Hz</div>
+        </div>
+    </div>
+
+    <div id="metronomePanel" class="tool-panel hidden">
+        <div class="tool-panel-header">
+            <h3>⏱️ Metronome</h3>
+            <button class="close-btn">×</button>
+        </div>
+        <div class="metronome-controls">
+            <div class="bpm-control">
+                <label>BPM</label>
+                <input type="number" id="metronomeBPM" min="40" max="300" value="120">
+                <input type="range" id="metronomeBPMSlider" min="40" max="300" value="120">
+            </div>
+            <div class="time-signature">
+                <label>Time Signature</label>
+                <select id="metronomeTimeSignature">
+                    <option value="4/4">4/4</option>
+                    <option value="3/4">3/4</option>
+                    <option value="6/8">6/8</option>
+                    <option value="7/8">7/8</option>
+                </select>
+            </div>
+            <button id="metronomeStartBtn" class="primary-btn">▶️ Start</button>
+            <button id="metronomeStopBtn" class="secondary-btn">⏹️ Stop</button>
+            <div class="metronome-visual">
+                <div class="beat-indicator"></div>
+                <div class="beat-indicator"></div>
+                <div class="beat-indicator"></div>
+                <div class="beat-indicator"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="looperPanel" class="tool-panel hidden">
+        <div class="tool-panel-header">
+            <h3>🔁 Looper</h3>
+            <button class="close-btn">×</button>
+        </div>
+        <div class="looper-controls">
+            <button id="looperRecordBtn" class="primary-btn">⏺️ Record</button>
+            <button id="looperPlayBtn" class="secondary-btn">▶️ Play</button>
+            <button id="looperStopBtn" class="secondary-btn">⏹️ Stop</button>
+            <button id="looperClearBtn" class="secondary-btn">🗑️ Clear</button>
+            <div class="looper-waveform">
+                <canvas id="looperWaveform" width="400" height="100"></canvas>
+            </div>
+            <div class="looper-info">
+                <span>Length: <span id="looperLength">0:00</span></span>
+                <span>Layers: <span id="looperLayers">0</span></span>
+            </div>
+        </div>
+    </div>
+
+    <div id="recorderPanel" class="tool-panel hidden">
+        <div class="tool-panel-header">
+            <h3>🎙️ Recorder</h3>
+            <button class="close-btn">×</button>
+        </div>
+        <div class="recorder-controls">
+            <button id="recorderStartBtn" class="primary-btn">⏺️ Record</button>
+            <button id="recorderStopBtn" class="secondary-btn">⏹️ Stop</button>
+            <button id="recorderDownloadBtn" class="secondary-btn" disabled>💾 Download</button>
+            <div class="recorder-waveform">
+                <canvas id="recorderWaveform" width="400" height="100"></canvas>
+            </div>
+            <div class="recorder-info">
+                <span>Time: <span id="recorderTime">0:00</span></span>
+                <span>Format: WAV 24bit/48kHz</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Settings Modal -->
+    <div id="settingsModal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>⚙️ Settings</h2>
+                <button class="close-btn">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="settings-section">
+                    <h3>Audio Settings</h3>
+                    <label>Input Device</label>
+                    <select id="inputDevice" class="select"></select>
+
+                    <label>Output Device</label>
+                    <select id="outputDevice" class="select"></select>
+
+                    <label>Sample Rate</label>
+                    <select id="sampleRate" class="select">
+                        <option value="44100">44.1 kHz</option>
+                        <option value="48000" selected>48 kHz</option>
+                        <option value="96000">96 kHz</option>
+                    </select>
+
+                    <label>Buffer Size</label>
+                    <select id="bufferSize" class="select">
+                        <option value="128">128 samples (low latency)</option>
+                        <option value="256" selected>256 samples (balanced)</option>
+                        <option value="512">512 samples (stable)</option>
+                        <option value="1024">1024 samples (safe)</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="ampstudio-audio.js"></script>
+    <script src="ampstudio-ui.js"></script>
+</body>
+</html>

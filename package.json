@@ -1,0 +1,159 @@
+{
+  "name": "soundwave-ampstudio",
+  "productName": "SoundWave AmpStudio",
+  "version": "1.0.0",
+  "description": "Professional guitar amplifier simulator - 100% Free & Open Source",
+  "main": "electron/main.js",
+  "scripts": {
+    "start": "node src/server/index.js",
+    "dev": "electron .",
+    "electron": "electron .",
+    "build": "webpack --config config/webpack.config.js",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder",
+    "dist:win": "electron-builder --win",
+    "dist:mac": "electron-builder --mac",
+    "dist:linux": "electron-builder --linux",
+    "dist:all": "electron-builder -mwl",
+    "test": "jest"
+  },
+  "build": {
+    "appId": "com.soundwave.ampstudio",
+    "productName": "SoundWave AmpStudio",
+    "directories": {
+      "output": "dist",
+      "buildResources": "build"
+    },
+    "files": [
+      "electron/**/*",
+      "public/**/*",
+      "package.json"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "artifactName": "SoundWave-AmpStudio-${version}-Windows-${arch}.${ext}",
+      "sign": null
+    },
+    "mac": {
+      "target": [
+        {
+          "target": "dmg",
+          "arch": [
+            "x64",
+            "arm64"
+          ]
+        },
+        {
+          "target": "zip",
+          "arch": [
+            "x64",
+            "arm64"
+          ]
+        }
+      ],
+      "category": "public.app-category.music",
+      "artifactName": "SoundWave-AmpStudio-${version}-macOS-${arch}.${ext}",
+      "hardenedRuntime": true,
+      "gatekeeperAssess": false,
+      "entitlements": "build/entitlements.mac.plist",
+      "entitlementsInherit": "build/entitlements.mac.plist"
+    },
+    "linux": {
+      "target": [
+        {
+          "target": "AppImage",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "deb",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "rpm",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "category": "Audio",
+      "artifactName": "SoundWave-AmpStudio-${version}-Linux-${arch}.${ext}"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "SoundWave AmpStudio"
+    },
+    "dmg": {
+      "title": "SoundWave AmpStudio ${version}",
+      "icon": "build/icon.icns",
+      "contents": [
+        {
+          "x": 130,
+          "y": 220
+        },
+        {
+          "x": 410,
+          "y": 220,
+          "type": "link",
+          "path": "/Applications"
+        }
+      ]
+    }
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "typescript": "^4.3.5"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.11",
+    "@types/react": "^17.0.2",
+    "@types/react-dom": "^17.0.2",
+    "electron": "^27.1.0",
+    "electron-builder": "^24.9.1",
+    "jest": "^27.0.6",
+    "webpack": "^5.51.1",
+    "webpack-cli": "^4.8.0"
+  },
+  "keywords": [
+    "guitar",
+    "amplifier",
+    "audio",
+    "music",
+    "vst",
+    "plugin",
+    "amp-simulator",
+    "effects",
+    "electron"
+  ],
+  "author": "SoundWave Amplifiers <corniolafederico07@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/soundwave-amplifiers/ampstudio.git"
+  },
+  "bugs": {
+    "url": "https://github.com/soundwave-amplifiers/ampstudio/issues"
+  },
+  "homepage": "https://github.com/soundwave-amplifiers/ampstudio#readme"
+}

@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contatta SoundWave Amplifiers per informazioni, preventivi e assistenza tecnica.">
+    <title>Contatti - SoundWave Amplifiers</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="container">
+                <div class="logo">
+                    <h1>SoundWave<span class="highlight">Amplifiers</span></h1>
+                </div>
+                <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="prodotti.html">Prodotti</a></li>
+                    <li><a href="software.html">Software</a></li>
+                    <li><a href="chi-siamo.html">Chi Siamo</a></li>
+                    <li><a href="contatti.html" class="active">Contatti</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Contattaci</h1>
+            <p>Siamo qui per rispondere a tutte le tue domande</p>
+        </div>
+    </section>
+
+    <!-- Contact Content -->
+    <section class="contact-content">
+        <div class="container">
+            <div class="contact-grid">
+                <!-- Contact Form -->
+                <div class="contact-form-section">
+                    <h2>Inviaci un Messaggio</h2>
+                    <p class="form-description">Compila il form sottostante e ti risponderemo entro 24 ore</p>
+
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Nome e Cognome *</label>
+                            <input type="text" id="name" name="name" required placeholder="Mario Rossi">
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email">Email *</label>
+                                <input type="email" id="email" name="email" required placeholder="mario.rossi@email.it">
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Telefono</label>
+                                <input type="tel" id="phone" name="phone" placeholder="+39 123 456 7890">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="subject">Oggetto *</label>
+                            <select id="subject" name="subject" required>
+                                <option value="">Seleziona un'opzione</option>
+                                <option value="info-prodotto">Informazioni Prodotto</option>
+                                <option value="preventivo">Richiesta Preventivo</option>
+                                <option value="assistenza">Assistenza Tecnica</option>
+                                <option value="visita">Prenotazione Visita</option>
+                                <option value="partnership">Partnership/Rivenditori</option>
+                                <option value="altro">Altro</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Messaggio *</label>
+                            <textarea id="message" name="message" rows="6" required placeholder="Scrivi qui il tuo messaggio..."></textarea>
+                        </div>
+
+                        <div class="form-group checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="privacy" required>
+                                <span>Accetto la <a href="#" class="link">Privacy Policy</a> e autorizzo il trattamento dei miei dati personali *</span>
+                            </label>
+                        </div>
+
+                        <div class="form-group checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="newsletter">
+                                <span>Desidero ricevere newsletter e aggiornamenti sui prodotti SoundWave</span>
+                            </label>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-large">Invia Messaggio</button>
+
+                        <div class="form-message" id="formMessage"></div>
+                    </form>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="contact-info-section">
+                    <h2>Informazioni di Contatto</h2>
+
+                    <div class="info-card">
+                        <div class="info-icon">💻</div>
+                        <div class="info-content">
+                            <h3>Modalità di Lavoro</h3>
+                            <p>100% Digitale<br>Consulenze e assistenza online<br>Spedizioni in tutta Italia</p>
+                        </div>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="info-icon">📞</div>
+                        <div class="info-content">
+                            <h3>Telefono</h3>
+                            <p>392 679 8664</p>
+                            <p class="info-detail">Lun-Ven: 9:00 - 18:00</p>
+                        </div>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="info-icon">📧</div>
+                        <div class="info-content">
+                            <h3>Email</h3>
+                            <p><a href="mailto:corniolafederico07@gmail.com">corniolafederico07@gmail.com</a></p>
+                        </div>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="info-icon">🕐</div>
+                        <div class="info-content">
+                            <h3>Orari di Disponibilità</h3>
+                            <p><strong>Assistenza Online:</strong></p>
+                            <p>Lunedì - Venerdì: 9:00 - 18:00<br>
+                            Sabato: 10:00 - 13:00<br>
+                            Risposta email entro 24 ore</p>
+                        </div>
+                    </div>
+
+                    <div class="social-links">
+                        <h3>Seguici sui Social</h3>
+                        <div class="social-icons">
+                            <a href="#" class="social-icon" aria-label="Facebook">📘</a>
+                            <a href="#" class="social-icon" aria-label="Instagram">📷</a>
+                            <a href="#" class="social-icon" aria-label="YouTube">📺</a>
+                            <a href="#" class="social-icon" aria-label="LinkedIn">💼</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Digital Services Section -->
+    <section class="map-section">
+        <div class="container">
+            <h2 class="section-title">Come Funziona il Nostro Servizio Digitale</h2>
+            <div class="directions">
+                <div class="direction-card">
+                    <h4>💬 Consulenza Personalizzata</h4>
+                    <p>Contattaci via email o telefono per una consulenza personalizzata. Ti aiuteremo a scegliere l'amplificatore perfetto per le tue esigenze.</p>
+                </div>
+                <div class="direction-card">
+                    <h4>🎯 Preventivo su Misura</h4>
+                    <p>Ricevi un preventivo dettagliato in base alle tue specifiche richieste. Offriamo soluzioni personalizzate per ogni musicista.</p>
+                </div>
+                <div class="direction-card">
+                    <h4>📦 Spedizione Sicura</h4>
+                    <p>Spediamo in tutta Italia con corrieri specializzati. Ogni amplificatore è imballato con cura per garantire la massima sicurezza.</p>
+                </div>
+                <div class="direction-card">
+                    <h4>🛠️ Assistenza Post-Vendita</h4>
+                    <p>Supporto tecnico online completo. Siamo sempre disponibili per rispondere alle tue domande e risolvere qualsiasi problema.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <h2 class="section-title">Domande Frequenti</h2>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h3 class="faq-question">Come posso conoscere meglio i vostri amplificatori?</h3>
+                    <div class="faq-answer">
+                        <p>Lavoriamo in modalità 100% digitale. Contattaci per una consulenza personalizzata via telefono o email. Ti forniremo tutte le informazioni tecniche, foto dettagliate e consigli per scegliere l'amplificatore perfetto per le tue esigenze.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <h3 class="faq-question">Offrite assistenza tecnica?</h3>
+                    <div class="faq-answer">
+                        <p>Sì, offriamo assistenza tecnica completa su tutti i nostri prodotti. Ogni amplificatore include una garanzia di 3 anni e supporto tecnico lifetime.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <h3 class="faq-question">Spedite in tutta Italia?</h3>
+                    <div class="faq-answer">
+                        <p>Sì, spediamo in tutta Italia e in Europa. Utilizziamo corrieri specializzati per garantire la massima sicurezza. I costi di spedizione verranno comunicati in fase di preventivo.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <h3 class="faq-question">È possibile personalizzare un amplificatore?</h3>
+                    <div class="faq-answer">
+                        <p>Certamente! Offriamo un servizio di customizzazione per adattare l'amplificatore alle tue esigenze specifiche. Contattaci per discutere le tue necessità.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <h3 class="faq-question">Avete un catalogo cartaceo?</h3>
+                    <div class="faq-answer">
+                        <p>Sì, puoi richiedere il catalogo completo compilando il form sopra o contattandoci via email. Possiamo anche inviarlo per posta.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <h3 class="faq-question">Cercate rivenditori/distributori?</h3>
+                    <div class="faq-answer">
+                        <p>Siamo sempre interessati a collaborazioni con negozi di musica e distributori qualificati. Seleziona "Partnership/Rivenditori" nel form di contatto per maggiori informazioni.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>SoundWave Amplifiers</h3>
+                    <p>Amplificatori artigianali italiani dal 1995. Qualità, passione e innovazione per il suono perfetto.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Link Rapidi</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="prodotti.html">Prodotti</a></li>
+                        <li><a href="software.html">Software</a></li>
+                        <li><a href="chi-siamo.html">Chi Siamo</a></li>
+                        <li><a href="contatti.html">Contatti</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Prodotti</h4>
+                    <ul>
+                        <li><a href="prodotti.html#chitarra">Amplificatori Chitarra</a></li>
+                        <li><a href="prodotti.html#basso">Amplificatori Basso</a></li>
+                        <li><a href="prodotti.html#combo">Combo</a></li>
+                        <li><a href="prodotti.html#accessori">Accessori</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contatti</h4>
+                    <ul>
+                        <li>📧 corniolafederico07@gmail.com</li>
+                        <li>📞 392 679 8664</li>
+                        <li>💻 Modalità 100% Digitale</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 SoundWave Amplifiers. Tutti i diritti riservati.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="amp-images.js"></script>
+</body>
+</html>
