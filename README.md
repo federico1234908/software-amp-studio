@@ -3,7 +3,7 @@
 **Professional Guitar Amplifier Simulator - 100% Free & Open Source**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Platform](https://img.shields.io/badge/platform-Web%20%7C%20Windows%20%7C%20macOS%20%7C%20Linux-blue)](https://github.com/soundwave-amplifiers/ampstudio)
+[![Platform](https://img.shields.io/badge/platform-Web%20%7C%20Windows%20%7C%20macOS%20%7C%20Linux-blue)](https://github.com/federico1234908/software-amp-studio)
 
 A powerful guitar amplifier simulator that runs in your browser or as a desktop application. Completely free alternative to STL Tones and similar paid software.
 
@@ -36,9 +36,9 @@ Just visit: **[Try SoundWave AmpStudio](https://yourwebsite.com/ampstudio.html)*
 ### Desktop App
 
 **Download:**
-- [Windows Installer](https://github.com/soundwave-amplifiers/ampstudio/releases) (Windows 10/11 64-bit)
-- [macOS DMG](https://github.com/soundwave-amplifiers/ampstudio/releases) (Intel & Apple Silicon)
-- [Linux AppImage/DEB/RPM](https://github.com/soundwave-amplifiers/ampstudio/releases)
+- [Windows Installer](https://github.com/federico1234908/software-amp-studio/releases) (Windows 10/11 64-bit)
+- [macOS DMG](https://github.com/federico1234908/software-amp-studio/releases) (Intel & Apple Silicon)
+- [Linux AppImage/DEB/RPM](https://github.com/federico1234908/software-amp-studio/releases)
 
 **Or build from source** (see [BUILD.md](BUILD.md))
 
@@ -51,8 +51,8 @@ Just visit: **[Try SoundWave AmpStudio](https://yourwebsite.com/ampstudio.html)*
 ### Clone and Install
 ```bash
 # Clone the repository
-git clone https://github.com/soundwave-amplifiers/ampstudio.git
-cd ampstudio
+git clone https://github.com/federico1234908/software-amp-studio.git
+cd software-amp-studio
 
 # Install dependencies
 npm install
@@ -168,7 +168,7 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## 🐛 Bug Reports & Feature Requests
 
-Please use [GitHub Issues](https://github.com/soundwave-amplifiers/ampstudio/issues) to report bugs or request features.
+Please use [GitHub Issues](https://github.com/federico1234908/software-amp-studio/issues) to report bugs or request features.
 
 ## 📋 System Requirements
 
@@ -204,7 +204,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **Website:** [soundwave-amplifiers.com](https://yourwebsite.com)
 - **Email:** corniolafederico07@gmail.com
 - **Phone:** +39 392 679 8664
-- **GitHub Issues:** [Report a bug](https://github.com/soundwave-amplifiers/ampstudio/issues)
+- **GitHub Issues:** [Report a bug](https://github.com/federico1234908/software-amp-studio/issues)
 
 ## ⭐ Show Your Support
 
